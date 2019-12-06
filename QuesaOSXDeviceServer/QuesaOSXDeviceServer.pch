@@ -1,0 +1,18 @@
+//
+// Prefix header for all source files of the 'QuesaOSXDeviceServer' target in the 'QuesaOSXDeviceServer' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+//#define QUESA_OS_MACINTOSH 1
+#define QUESA_OS_COCOA 1
+#define Q3_DEBUG 1
+
+#warning TODO: take care of endianess on x86!
+
+#ifndef PrivateQuesaPrefix
+	#include "E3Prefix.h"	
+#define PrivateQuesaPrefix
+#endif

@@ -1,0 +1,704 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		659FC43018D61A0100E4B838 /* QuesaCocoaDeviceServer.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7F3EB26413DDEDC200B2B96D /* QuesaCocoaDeviceServer.app */; };
+		7F3EB26B13DDEDDE00B2B96D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
+		7F3EB29A13DDF52500B2B96D /* Q3DcontrollerPDO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3EB29913DDF52500B2B96D /* Q3DcontrollerPDO.m */; };
+		7FBD646709A8C39B00E96B59 /* IPCMessageIDs.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FBD646409A8C39B00E96B59 /* IPCMessageIDs.h */; };
+		7FBD646809A8C39B00E96B59 /* IPCPackUnpack.c in Sources */ = {isa = PBXBuildFile; fileRef = 7FBD646509A8C39B00E96B59 /* IPCPackUnpack.c */; };
+		7FBD646909A8C39B00E96B59 /* IPCPackUnpack.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FBD646609A8C39B00E96B59 /* IPCPackUnpack.h */; };
+		7FCEC64C076B6893005A68E2 /* DeviceServerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FCEC64A076B6893005A68E2 /* DeviceServerController.h */; };
+		7FCEC64D076B6893005A68E2 /* DeviceServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCEC64B076B6893005A68E2 /* DeviceServerController.m */; };
+		7FCEC650076B68B2005A68E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCEC64E076B68B2005A68E2 /* main.m */; };
+		7FCEC651076B68B2005A68E2 /* QuesaOSXDeviceServer.pch in Headers */ = {isa = PBXBuildFile; fileRef = 7FCEC64F076B68B2005A68E2 /* QuesaOSXDeviceServer.pch */; };
+		7FCEC65A076B68CA005A68E2 /* ControllerDB.c in Sources */ = {isa = PBXBuildFile; fileRef = 7FCEC652076B68CA005A68E2 /* ControllerDB.c */; };
+		7FCEC65B076B68CA005A68E2 /* ControllerDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FCEC653076B68CA005A68E2 /* ControllerDB.h */; };
+		7FCEC65C076B68CA005A68E2 /* IPCController.c in Sources */ = {isa = PBXBuildFile; fileRef = 7FCEC654076B68CA005A68E2 /* IPCController.c */; };
+		7FCEC65D076B68CA005A68E2 /* IPCController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FCEC655076B68CA005A68E2 /* IPCController.h */; };
+		7FCEC65E076B68CA005A68E2 /* IPCDriver.c in Sources */ = {isa = PBXBuildFile; fileRef = 7FCEC656076B68CA005A68E2 /* IPCDriver.c */; };
+		7FCEC65F076B68CA005A68E2 /* IPCDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FCEC657076B68CA005A68E2 /* IPCDriver.h */; };
+		7FCEC660076B68CA005A68E2 /* IPCTracker.c in Sources */ = {isa = PBXBuildFile; fileRef = 7FCEC658076B68CA005A68E2 /* IPCTracker.c */; };
+		7FCEC661076B68CA005A68E2 /* IPCTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FCEC659076B68CA005A68E2 /* IPCTracker.h */; };
+		7FCEC66A076B6908005A68E2 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCEC668076B6908005A68E2 /* MainMenu.nib */; };
+		7FEE23B613DF3C1C000EBFD5 /* Q3Ddb.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE23B513DF3C1C000EBFD5 /* Q3Ddb.m */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		659FC42F18D619F300E4B838 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "~/Library/Frameworks";
+			dstSubfolderSpec = 0;
+			files = (
+				659FC43018D61A0100E4B838 /* QuesaCocoaDeviceServer.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		7F33224B220EE2250025CCC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		7F3EB26413DDEDC200B2B96D /* QuesaCocoaDeviceServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuesaCocoaDeviceServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F3EB26613DDEDC200B2B96D /* QuesaCocoaDeviceServer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuesaCocoaDeviceServer-Info.plist"; sourceTree = "<group>"; };
+		7F3EB28C13DDEFCA00B2B96D /* IPCprotocolPDO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPCprotocolPDO.h; path = ../common/IPCprotocolPDO.h; sourceTree = SOURCE_ROOT; };
+		7F3EB29813DDF52500B2B96D /* Q3DcontrollerPDO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Q3DcontrollerPDO.h; path = PDO/Q3DcontrollerPDO.h; sourceTree = "<group>"; };
+		7F3EB29913DDF52500B2B96D /* Q3DcontrollerPDO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Q3DcontrollerPDO.m; path = PDO/Q3DcontrollerPDO.m; sourceTree = "<group>"; };
+		7FBD646409A8C39B00E96B59 /* IPCMessageIDs.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = IPCMessageIDs.h; path = ../common/IPCMessageIDs.h; sourceTree = SOURCE_ROOT; };
+		7FBD646509A8C39B00E96B59 /* IPCPackUnpack.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = IPCPackUnpack.c; path = ../common/IPCPackUnpack.c; sourceTree = SOURCE_ROOT; };
+		7FBD646609A8C39B00E96B59 /* IPCPackUnpack.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = IPCPackUnpack.h; path = ../common/IPCPackUnpack.h; sourceTree = SOURCE_ROOT; };
+		7FCEC64A076B6893005A68E2 /* DeviceServerController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DeviceServerController.h; sourceTree = "<group>"; };
+		7FCEC64B076B6893005A68E2 /* DeviceServerController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DeviceServerController.m; sourceTree = "<group>"; };
+		7FCEC64E076B68B2005A68E2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7FCEC64F076B68B2005A68E2 /* QuesaOSXDeviceServer.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = QuesaOSXDeviceServer.pch; sourceTree = "<group>"; };
+		7FCEC652076B68CA005A68E2 /* ControllerDB.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = ControllerDB.c; sourceTree = "<group>"; };
+		7FCEC653076B68CA005A68E2 /* ControllerDB.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ControllerDB.h; sourceTree = "<group>"; };
+		7FCEC654076B68CA005A68E2 /* IPCController.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = IPCController.c; sourceTree = "<group>"; };
+		7FCEC655076B68CA005A68E2 /* IPCController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = IPCController.h; sourceTree = "<group>"; };
+		7FCEC656076B68CA005A68E2 /* IPCDriver.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = IPCDriver.c; sourceTree = "<group>"; };
+		7FCEC657076B68CA005A68E2 /* IPCDriver.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = IPCDriver.h; sourceTree = "<group>"; };
+		7FCEC658076B68CA005A68E2 /* IPCTracker.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = IPCTracker.c; sourceTree = "<group>"; };
+		7FCEC659076B68CA005A68E2 /* IPCTracker.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = IPCTracker.h; sourceTree = "<group>"; };
+		7FEE23B413DF3C1C000EBFD5 /* Q3Ddb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Q3Ddb.h; sourceTree = "<group>"; };
+		7FEE23B513DF3C1C000EBFD5 /* Q3Ddb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Q3Ddb.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* QuesaOSXDeviceServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuesaOSXDeviceServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F3EB26213DDEDC200B2B96D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F3EB26B13DDEDDE00B2B96D /* AppKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7FCEC64A076B6893005A68E2 /* DeviceServerController.h */,
+				7FCEC64B076B6893005A68E2 /* DeviceServerController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* QuesaOSXDeviceServer.app */,
+				7F3EB26413DDEDC200B2B96D /* QuesaCocoaDeviceServer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* QuesaOSXDeviceServer */ = {
+			isa = PBXGroup;
+			children = (
+				7FCEC64F076B68B2005A68E2 /* QuesaOSXDeviceServer.pch */,
+				7F3EB27513DDEF4500B2B96D /* PDO */,
+				7F3EB27213DDEF1B00B2B96D /* OSX */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = QuesaOSXDeviceServer;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7FCEC64E076B68B2005A68E2 /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7FCEC668076B6908005A68E2 /* MainMenu.nib */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				7F3EB26613DDEDC200B2B96D /* QuesaCocoaDeviceServer-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F3EB27213DDEF1B00B2B96D /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				7FCEC649076B687B005A68E2 /* plain C */,
+			);
+			name = OSX;
+			sourceTree = "<group>";
+		};
+		7F3EB27513DDEF4500B2B96D /* PDO */ = {
+			isa = PBXGroup;
+			children = (
+				7F3EB29713DDF4F700B2B96D /* Classes */,
+				7F3EB28B13DDEFB300B2B96D /* Common */,
+			);
+			name = PDO;
+			sourceTree = "<group>";
+		};
+		7F3EB28B13DDEFB300B2B96D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7F3EB28C13DDEFCA00B2B96D /* IPCprotocolPDO.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		7F3EB29713DDF4F700B2B96D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7F3EB29813DDF52500B2B96D /* Q3DcontrollerPDO.h */,
+				7F3EB29913DDF52500B2B96D /* Q3DcontrollerPDO.m */,
+				7FEE23B413DF3C1C000EBFD5 /* Q3Ddb.h */,
+				7FEE23B513DF3C1C000EBFD5 /* Q3Ddb.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		7FCEC649076B687B005A68E2 /* plain C */ = {
+			isa = PBXGroup;
+			children = (
+				7FBD646409A8C39B00E96B59 /* IPCMessageIDs.h */,
+				7FBD646509A8C39B00E96B59 /* IPCPackUnpack.c */,
+				7FBD646609A8C39B00E96B59 /* IPCPackUnpack.h */,
+				7FCEC652076B68CA005A68E2 /* ControllerDB.c */,
+				7FCEC653076B68CA005A68E2 /* ControllerDB.h */,
+				7FCEC654076B68CA005A68E2 /* IPCController.c */,
+				7FCEC655076B68CA005A68E2 /* IPCController.h */,
+				7FCEC656076B68CA005A68E2 /* IPCDriver.c */,
+				7FCEC657076B68CA005A68E2 /* IPCDriver.h */,
+				7FCEC658076B68CA005A68E2 /* IPCTracker.c */,
+				7FCEC659076B68CA005A68E2 /* IPCTracker.h */,
+			);
+			name = "plain C";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7F33EB5E0827FCE200508231 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FCEC64C076B6893005A68E2 /* DeviceServerController.h in Headers */,
+				7FCEC651076B68B2005A68E2 /* QuesaOSXDeviceServer.pch in Headers */,
+				7FCEC65B076B68CA005A68E2 /* ControllerDB.h in Headers */,
+				7FCEC65D076B68CA005A68E2 /* IPCController.h in Headers */,
+				7FCEC65F076B68CA005A68E2 /* IPCDriver.h in Headers */,
+				7FCEC661076B68CA005A68E2 /* IPCTracker.h in Headers */,
+				7FBD646709A8C39B00E96B59 /* IPCMessageIDs.h in Headers */,
+				7FBD646909A8C39B00E96B59 /* IPCPackUnpack.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7F3EB26313DDEDC200B2B96D /* QuesaCocoaDeviceServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F3EB26A13DDEDC200B2B96D /* Build configuration list for PBXNativeTarget "QuesaCocoaDeviceServer" */;
+			buildPhases = (
+				7F3EB26013DDEDC200B2B96D /* Resources */,
+				7F3EB26113DDEDC200B2B96D /* Sources */,
+				7F3EB26213DDEDC200B2B96D /* Frameworks */,
+				659FC42F18D619F300E4B838 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuesaCocoaDeviceServer;
+			productName = QuesaCocoaDeviceServer;
+			productReference = 7F3EB26413DDEDC200B2B96D /* QuesaCocoaDeviceServer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8D1107260486CEB800E47090 /* QuesaOSXDeviceServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F0107E9094E0F3B0006A843 /* Build configuration list for PBXNativeTarget "QuesaOSXDeviceServer" */;
+			buildPhases = (
+				7F33EB5E0827FCE200508231 /* Headers */,
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuesaOSXDeviceServer;
+			productInstallPath = "$(HOME)/Applications";
+			productName = QuesaOSXDeviceServer;
+			productReference = 8D1107320486CEB800E47090 /* QuesaOSXDeviceServer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+			};
+			buildConfigurationList = 7F0107ED094E0F3B0006A843 /* Build configuration list for PBXProject "QuesaOSXDeviceServer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				Base,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* QuesaOSXDeviceServer */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* QuesaOSXDeviceServer */,
+				7F3EB26313DDEDC200B2B96D /* QuesaCocoaDeviceServer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7F3EB26013DDEDC200B2B96D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				7FCEC66A076B6908005A68E2 /* MainMenu.nib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7F3EB26113DDEDC200B2B96D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F3EB29A13DDF52500B2B96D /* Q3DcontrollerPDO.m in Sources */,
+				7FEE23B613DF3C1C000EBFD5 /* Q3Ddb.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FCEC64D076B6893005A68E2 /* DeviceServerController.m in Sources */,
+				7FCEC650076B68B2005A68E2 /* main.m in Sources */,
+				7FCEC65A076B68CA005A68E2 /* ControllerDB.c in Sources */,
+				7FCEC65C076B68CA005A68E2 /* IPCController.c in Sources */,
+				7FCEC65E076B68CA005A68E2 /* IPCDriver.c in Sources */,
+				7FCEC660076B68CA005A68E2 /* IPCTracker.c in Sources */,
+				7FBD646809A8C39B00E96B59 /* IPCPackUnpack.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7FCEC668076B6908005A68E2 /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7F33224B220EE2250025CCC3 /* Base */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7F0107EA094E0F3B0006A843 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QuesaOSXDeviceServer.pch;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../quesa/Development/Source/Core/System",
+					"${SRCROOT}/../../quesa/Development/Source/Core/Support",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Mac",
+					"${SRCROOT}/../../quesa/SDK/Includes/Quesa",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Cocoa",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.myCocoaApp;
+				PRODUCT_NAME = QuesaOSXDeviceServer;
+				SDKROOT = macosx;
+				STRIP_STYLE = debugging;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		7F0107EB094E0F3B0006A843 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QuesaOSXDeviceServer.pch;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../quesa/Development/Source/Core/System",
+					"${SRCROOT}/../../quesa/Development/Source/Core/Support",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Mac",
+					"${SRCROOT}/../../quesa/SDK/Includes/Quesa",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Cocoa",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.myCocoaApp;
+				PRODUCT_NAME = QuesaOSXDeviceServer;
+				SDKROOT = macosx;
+				STRIP_STYLE = debugging;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		7F0107EC094E0F3B0006A843 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QuesaOSXDeviceServer.pch;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../quesa/Development/Source/Core/System",
+					"${SRCROOT}/../../quesa/Development/Source/Core/Support",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Mac",
+					"${SRCROOT}/../../quesa/SDK/Includes/Quesa",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Cocoa",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.myCocoaApp;
+				PRODUCT_NAME = QuesaOSXDeviceServer;
+				SDKROOT = macosx;
+				STRIP_STYLE = debugging;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Default;
+		};
+		7F0107EE094E0F3B0006A843 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../common";
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Development;
+		};
+		7F0107EF094E0F3B0006A843 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../common";
+			};
+			name = Deployment;
+		};
+		7F0107F0094E0F3B0006A843 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../common";
+			};
+			name = Default;
+		};
+		7F3EB26713DDEDC200B2B96D /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QuesaOSXDeviceServer.pch;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../quesa/Development/Source/Core/System",
+					"${SRCROOT}/../../quesa/Development/Source/Core/Support",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Mac",
+					"${SRCROOT}/../../quesa/SDK/Includes/Quesa",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Cocoa",
+				);
+				INFOPLIST_FILE = "QuesaCocoaDeviceServer-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = QuesaCocoaDeviceServer;
+				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Development;
+		};
+		7F3EB26813DDEDC200B2B96D /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../quesa/Development/Source/Core/System",
+					"${SRCROOT}/../../quesa/Development/Source/Core/Support",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Mac",
+					"${SRCROOT}/../../quesa/SDK/Includes/Quesa",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Cocoa",
+				);
+				INFOPLIST_FILE = "QuesaCocoaDeviceServer-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = QuesaCocoaDeviceServer;
+				SDKROOT = macosx;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		7F3EB26913DDEDC200B2B96D /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../quesa/Development/Source/Core/System",
+					"${SRCROOT}/../../quesa/Development/Source/Core/Support",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Mac",
+					"${SRCROOT}/../../quesa/SDK/Includes/Quesa",
+					"${SRCROOT}/../../quesa/Development/Source/Platform/Cocoa",
+				);
+				INFOPLIST_FILE = "QuesaCocoaDeviceServer-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = QuesaCocoaDeviceServer;
+				SDKROOT = macosx;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7F0107E9094E0F3B0006A843 /* Build configuration list for PBXNativeTarget "QuesaOSXDeviceServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F0107EA094E0F3B0006A843 /* Development */,
+				7F0107EB094E0F3B0006A843 /* Deployment */,
+				7F0107EC094E0F3B0006A843 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		7F0107ED094E0F3B0006A843 /* Build configuration list for PBXProject "QuesaOSXDeviceServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F0107EE094E0F3B0006A843 /* Development */,
+				7F0107EF094E0F3B0006A843 /* Deployment */,
+				7F0107F0094E0F3B0006A843 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		7F3EB26A13DDEDC200B2B96D /* Build configuration list for PBXNativeTarget "QuesaCocoaDeviceServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F3EB26713DDEDC200B2B96D /* Development */,
+				7F3EB26813DDEDC200B2B96D /* Deployment */,
+				7F3EB26913DDEDC200B2B96D /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
