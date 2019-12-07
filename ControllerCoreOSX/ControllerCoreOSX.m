@@ -900,7 +900,7 @@ CC3OSXTracker_New(TQ3Object theObject, TQ3TrackerNotifyFunc notifyFunc)
 //		caller in E3Controller.c will ignore return value!
 //-----------------------------------------------------------------------------
 TC3TrackerInstanceDataPtr
-CC3OSXTracker_Delete(TC3TrackerInstanceDataPtr trackerObject)//"un"vend theTracker message to DB! TODO: rephrase comment!
+CC3OSXTracker_Delete(TC3TrackerInstanceDataPtr trackerObject)//"un"vend theTracker message to DB!
 {
     TQ3Status   status = kQ3Failure;
 	id          proxyDB;
@@ -1195,7 +1195,7 @@ CC3OSXControllerState_New(TQ3Object theObject, TQ3ControllerRef theController)
     };
 					
 	return(theInstanceData);
-}//TODO: crashes when re-run bench WITHOUT stopping and starting the device server for 2ns bench run
+}//TODO: crashes when re-run bench WITHOUT stopping and starting the device server for 2nd bench run
 
 
 //=============================================================================

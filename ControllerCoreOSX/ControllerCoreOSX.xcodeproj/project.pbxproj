@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		652F04F316EB5267002FB8CE /* ControllerDriverCoreOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 652F04F116EB5267002FB8CE /* ControllerDriverCoreOSX.h */; };
 		652F04F416EB5267002FB8CE /* ControllerDriverCoreOSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 652F04F216EB5267002FB8CE /* ControllerDriverCoreOSX.m */; };
-		659FC42E18D5F64200E4B838 /* ControllerCoreOSX_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 659FC42D18D5F64200E4B838 /* ControllerCoreOSX_Prefix.pch */; };
-		65CF833416FF492E00DFBF43 /* ControllerCoreOSX_pdo_IPC.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7F5D6EDF13D31BAF00CBDEC3 /* ControllerCoreOSX_pdo_IPC.framework */; };
 		65CF836B16FF725D00DFBF43 /* ControllerCoreOSXinternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 652F04F516EBAD00002FB8CE /* ControllerCoreOSXinternals.h */; };
 		7F41D40613E563C600C398CA /* TrackerCoreOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F41D40413E563C600C398CA /* TrackerCoreOSX.h */; };
 		7F41D40713E563C600C398CA /* TrackerCoreOSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F41D40513E563C600C398CA /* TrackerCoreOSX.m */; };
@@ -21,27 +19,14 @@
 		7FD6C48813D60EFC00127C89 /* IPCprotocolPDO.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FD6C48713D60EFC00127C89 /* IPCprotocolPDO.h */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		65CF833316FF490A00DFBF43 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "~/Library/Frameworks";
-			dstSubfolderSpec = 0;
-			files = (
-				65CF833416FF492E00DFBF43 /* ControllerCoreOSX_pdo_IPC.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		652F04F116EB5267002FB8CE /* ControllerDriverCoreOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerDriverCoreOSX.h; sourceTree = "<group>"; };
 		652F04F216EB5267002FB8CE /* ControllerDriverCoreOSX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerDriverCoreOSX.m; sourceTree = "<group>"; };
 		652F04F516EBAD00002FB8CE /* ControllerCoreOSXinternals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllerCoreOSXinternals.h; sourceTree = "<group>"; };
-		659FC42D18D5F64200E4B838 /* ControllerCoreOSX_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerCoreOSX_Prefix.pch; sourceTree = "<group>"; };
+		659FC42D18D5F64200E4B838 /* ControllerCoreOSX_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerCoreOSX_Prefix.h; sourceTree = "<group>"; };
 		7F41D40413E563C600C398CA /* TrackerCoreOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerCoreOSX.h; sourceTree = "<group>"; };
 		7F41D40513E563C600C398CA /* TrackerCoreOSX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerCoreOSX.m; sourceTree = "<group>"; };
+		7F55E9D1239A93AC00468537 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F5D6EDF13D31BAF00CBDEC3 /* ControllerCoreOSX_pdo_IPC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ControllerCoreOSX_pdo_IPC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F5D6EE013D31BAF00CBDEC3 /* ControllerCoreOSX_pdo_IPC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ControllerCoreOSX_pdo_IPC-Info.plist"; sourceTree = "<group>"; };
 		7F5D6FB713D31C6600CBDEC3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -103,7 +88,7 @@
 			children = (
 				7FD6C48713D60EFC00127C89 /* IPCprotocolPDO.h */,
 				7FCC96EB07C7C7130084B9E6 /* ControllerCoreOSX.m */,
-				659FC42D18D5F64200E4B838 /* ControllerCoreOSX_Prefix.pch */,
+				659FC42D18D5F64200E4B838 /* ControllerCoreOSX_Prefix.h */,
 				7FCC96EC07C7C7130084B9E6 /* ControllerCoreOSX.h */,
 				7F41D40413E563C600C398CA /* TrackerCoreOSX.h */,
 				7F41D40513E563C600C398CA /* TrackerCoreOSX.m */,
@@ -126,7 +111,6 @@
 				7F41D40613E563C600C398CA /* TrackerCoreOSX.h in Headers */,
 				652F04F316EB5267002FB8CE /* ControllerDriverCoreOSX.h in Headers */,
 				65CF836B16FF725D00DFBF43 /* ControllerCoreOSXinternals.h in Headers */,
-				659FC42E18D5F64200E4B838 /* ControllerCoreOSX_Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +125,6 @@
 				7F5D6EDB13D31BAF00CBDEC3 /* Resources */,
 				7F5D6EDC13D31BAF00CBDEC3 /* Sources */,
 				7F5D6EDD13D31BAF00CBDEC3 /* Frameworks */,
-				65CF833316FF490A00DFBF43 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -158,17 +141,15 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1120;
 			};
 			buildConfigurationList = 7F010741094E06A60006A843 /* Build configuration list for PBXProject "ControllerCoreOSX" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				Base,
+				en,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* ControllerCoreOSX */;
 			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
@@ -208,7 +189,7 @@
 		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				089C1667FE841158C02AAC07 /* English */,
+				7F55E9D1239A93AC00468537 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -219,8 +200,9 @@
 		7F010742094E06A60006A843 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -238,12 +220,14 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				CODE_SIGN_IDENTITY = "-";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ControllerCoreOSX_Prefix.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = ./ControllerCoreOSX_Prefix.h;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -251,23 +235,30 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../../quesa/Development/Source/Core/System,
-					../../quesa/Development/Source/Core/Support,
-					../../quesa/Development/Source/Platform/Mac,
-					../../quesa/SDK/Includes/Quesa,
-					.,
+					../../Quesa/Development/Source/Core/System,
+					../../Quesa/Development/Source/Core/Support,
+					../../Quesa/Development/Source/Platform/Mac,
+					../../Quesa/SDK/Includes/Quesa,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				SDKROOT = macosx;
+				STRIP_STYLE = debugging;
+				TVOS_DEPLOYMENT_TARGET = 13.2;
 				USER_HEADER_SEARCH_PATHS = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
 			};
 			name = Development;
 		};
 		7F010743094E06A60006A843 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -285,11 +276,13 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				CODE_SIGN_IDENTITY = "-";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ControllerCoreOSX_Prefix.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = ./ControllerCoreOSX_Prefix.h;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -297,22 +290,29 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../../quesa/Development/Source/Core/System,
-					../../quesa/Development/Source/Core/Support,
-					../../quesa/Development/Source/Platform/Mac,
-					../../quesa/SDK/Includes/Quesa,
-					.,
+					../../Quesa/Development/Source/Core/System,
+					../../Quesa/Development/Source/Core/Support,
+					../../Quesa/Development/Source/Platform/Mac,
+					../../Quesa/SDK/Includes/Quesa,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				SDKROOT = macosx;
+				STRIP_STYLE = debugging;
+				TVOS_DEPLOYMENT_TARGET = 13.2;
 				USER_HEADER_SEARCH_PATHS = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
 			};
 			name = Deployment;
 		};
 		7F010744094E06A60006A843 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -330,11 +330,13 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				CODE_SIGN_IDENTITY = "-";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ControllerCoreOSX_Prefix.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = ./ControllerCoreOSX_Prefix.h;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -342,14 +344,20 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../../quesa/Development/Source/Core/System,
-					../../quesa/Development/Source/Core/Support,
-					../../quesa/Development/Source/Platform/Mac,
-					../../quesa/SDK/Includes/Quesa,
-					.,
+					../../Quesa/Development/Source/Core/System,
+					../../Quesa/Development/Source/Core/Support,
+					../../Quesa/Development/Source/Platform/Mac,
+					../../Quesa/SDK/Includes/Quesa,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				SDKROOT = macosx;
+				STRIP_STYLE = debugging;
+				TVOS_DEPLOYMENT_TARGET = 13.2;
 				USER_HEADER_SEARCH_PATHS = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
 			};
 			name = Default;
 		};
@@ -357,29 +365,31 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_MODEL_TUNING = "";
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../../quesa/Development/Source/Core/System,
-					../../quesa/Development/Source/Core/Support,
-					../../quesa/Development/Source/Platform/Mac,
-					../../quesa/SDK/Includes/Quesa,
+					../../Quesa/Development/Source/Core/System,
+					../../Quesa/Development/Source/Core/Support,
+					../../Quesa/Development/Source/Platform/Mac,
+					../../Quesa/SDK/Includes/Quesa,
 				);
 				INFOPLIST_FILE = "ControllerCoreOSX_pdo_IPC-Info.plist";
 				INSTALL_PATH = "~/Library/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -397,6 +407,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -404,17 +416,18 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				HEADER_SEARCH_PATHS = (
-					../../quesa/Development/Source/Core/System,
-					../../quesa/Development/Source/Core/Support,
-					../../quesa/Development/Source/Platform/Mac,
-					../../quesa/SDK/Includes/Quesa,
+					../../Quesa/Development/Source/Core/System,
+					../../Quesa/Development/Source/Core/Support,
+					../../Quesa/Development/Source/Platform/Mac,
+					../../Quesa/SDK/Includes/Quesa,
 				);
 				INFOPLIST_FILE = "ControllerCoreOSX_pdo_IPC-Info.plist";
 				INSTALL_PATH = "~/Library/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -433,22 +446,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				HEADER_SEARCH_PATHS = (
-					../../quesa/Development/Source/Core/System,
-					../../quesa/Development/Source/Core/Support,
-					../../quesa/Development/Source/Platform/Mac,
-					../../quesa/SDK/Includes/Quesa,
+					../../Quesa/Development/Source/Core/System,
+					../../Quesa/Development/Source/Core/Support,
+					../../Quesa/Development/Source/Platform/Mac,
+					../../Quesa/SDK/Includes/Quesa,
 				);
 				INFOPLIST_FILE = "ControllerCoreOSX_pdo_IPC-Info.plist";
 				INSTALL_PATH = "~/Library/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",

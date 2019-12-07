@@ -254,7 +254,7 @@
 		if (_hasSetChannelMethod)
 		{
 			dataAtIndex = [arrayAtUUID objectAtIndex:channel];
-            dataSize=[dataAtIndex length];
+            dataSize=(TQ3Uns32)[dataAtIndex length];
             status = [self setChannel:channel withData:dataAtIndex ofSize:dataSize];
 		}
 	}
