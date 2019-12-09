@@ -27,7 +27,6 @@
 		7FCEC661076B68CA005A68E2 /* IPCTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FCEC659076B68CA005A68E2 /* IPCTracker.h */; };
 		7FCEC66A076B6908005A68E2 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCEC668076B6908005A68E2 /* MainMenu.nib */; };
 		7FEE23B613DF3C1C000EBFD5 /* Q3Ddb.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE23B513DF3C1C000EBFD5 /* Q3Ddb.m */; };
-		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +44,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -156,7 +154,6 @@
 			children = (
 				7FCEC668076B6908005A68E2 /* MainMenu.nib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				7F3EB26613DDEDC200B2B96D /* QuesaCocoaDeviceServer-Info.plist */,
 			);
 			name = Resources;
@@ -327,7 +324,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				7FCEC66A076B6908005A68E2 /* MainMenu.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,14 +357,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				089C165DFE840E0CC02AAC07 /* English */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		7FCEC668076B6908005A68E2 /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -401,6 +389,7 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.myCocoaApp;
 				PRODUCT_NAME = QuesaOSXDeviceServer;
@@ -431,6 +420,7 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.myCocoaApp;
 				PRODUCT_NAME = QuesaOSXDeviceServer;
 				SDKROOT = macosx;
@@ -458,6 +448,7 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.myCocoaApp;
 				PRODUCT_NAME = QuesaOSXDeviceServer;
 				SDKROOT = macosx;
@@ -469,7 +460,10 @@
 		7F0107EE094E0F3B0006A843 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -489,6 +483,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -497,14 +493,22 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../common";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				TVOS_DEPLOYMENT_TARGET = 13.2;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
 			};
 			name = Development;
 		};
 		7F0107EF094E0F3B0006A843 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -523,6 +527,8 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -531,13 +537,22 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../common";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				TVOS_DEPLOYMENT_TARGET = 13.2;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
 			};
 			name = Deployment;
 		};
 		7F0107F0094E0F3B0006A843 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -556,6 +571,8 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -564,16 +581,26 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../common";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				TVOS_DEPLOYMENT_TARGET = 13.2;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
 			};
 			name = Default;
 		};
 		7F3EB26713DDEDC200B2B96D /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_MODEL_TUNING = G5;
@@ -581,14 +608,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = QuesaOSXDeviceServer.pch;
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/../../quesa/Development/Source/Core/System",
-					"${SRCROOT}/../../quesa/Development/Source/Core/Support",
-					"${SRCROOT}/../../quesa/Development/Source/Platform/Mac",
-					"${SRCROOT}/../../quesa/SDK/Includes/Quesa",
-					"${SRCROOT}/../../quesa/Development/Source/Platform/Cocoa",
+					"${SRCROOT}/../../Quesa/Development/Source/Core/System",
+					"${SRCROOT}/../../Quesa/Development/Source/Core/Support",
+					"${SRCROOT}/../../Quesa/Development/Source/Platform/Mac",
+					"${SRCROOT}/../../Quesa/SDK/Includes/Quesa",
+					"${SRCROOT}/../../Quesa/Development/Source/Platform/Cocoa",
 				);
 				INFOPLIST_FILE = "QuesaCocoaDeviceServer-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -598,6 +627,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = QuesaCocoaDeviceServer;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				USE_HEADERMAP = YES;
 				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Development;
@@ -606,22 +637,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEPLOYMENT_POSTPROCESSING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_PREFIX_HEADER = QuesaOSXDeviceServer.pch;
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/../../quesa/Development/Source/Core/System",
-					"${SRCROOT}/../../quesa/Development/Source/Core/Support",
-					"${SRCROOT}/../../quesa/Development/Source/Platform/Mac",
-					"${SRCROOT}/../../quesa/SDK/Includes/Quesa",
-					"${SRCROOT}/../../quesa/Development/Source/Platform/Cocoa",
+					"${SRCROOT}/../../Quesa/Development/Source/Core/System",
+					"${SRCROOT}/../../Quesa/Development/Source/Core/Support",
+					"${SRCROOT}/../../Quesa/Development/Source/Platform/Mac",
+					"${SRCROOT}/../../Quesa/SDK/Includes/Quesa",
+					"${SRCROOT}/../../Quesa/Development/Source/Platform/Cocoa",
 				);
 				INFOPLIST_FILE = "QuesaCocoaDeviceServer-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -631,6 +670,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = QuesaCocoaDeviceServer;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				USE_HEADERMAP = YES;
 				ZERO_LINK = NO;
 			};
 			name = Deployment;
@@ -639,20 +680,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_PREFIX_HEADER = QuesaOSXDeviceServer.pch;
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/../../quesa/Development/Source/Core/System",
-					"${SRCROOT}/../../quesa/Development/Source/Core/Support",
-					"${SRCROOT}/../../quesa/Development/Source/Platform/Mac",
-					"${SRCROOT}/../../quesa/SDK/Includes/Quesa",
-					"${SRCROOT}/../../quesa/Development/Source/Platform/Cocoa",
+					"${SRCROOT}/../../Quesa/Development/Source/Core/System",
+					"${SRCROOT}/../../Quesa/Development/Source/Core/Support",
+					"${SRCROOT}/../../Quesa/Development/Source/Platform/Mac",
+					"${SRCROOT}/../../Quesa/SDK/Includes/Quesa",
+					"${SRCROOT}/../../Quesa/Development/Source/Platform/Cocoa",
 				);
 				INFOPLIST_FILE = "QuesaCocoaDeviceServer-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -662,6 +711,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = QuesaCocoaDeviceServer;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				USE_HEADERMAP = YES;
 			};
 			name = Default;
 		};

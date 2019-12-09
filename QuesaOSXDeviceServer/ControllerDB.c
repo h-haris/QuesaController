@@ -8,7 +8,7 @@
 		server to handle every registered controller driver.
 	  
     COPYRIGHT:
-        Copyright (c) 1999-2005, Quesa Developers. All rights reserved.
+        Copyright (c) 1999-2019, Quesa Developers. All rights reserved.
 
         For the current release of Quesa, please see:
 
@@ -1197,9 +1197,11 @@ ControllerDB_StateSaveAndReset(TQ3ControllerRef controllerRef, CFStringRef CtrlS
 {
 	TQ3Status					status = kQ3Failure;
 	TC3ControllerPrivateDataPtr theController = (TC3ControllerPrivateDataPtr)controllerRef;
+    /*
 	UInt8						channelData[kQ3ControllerSetChannelMaxDataSize];
 	UInt32						channelDataSize;
-	
+	*/
+     
 	CFMutableDictionaryRef		dict,returnDict;
 	
 	Boolean result;
@@ -1254,9 +1256,11 @@ ControllerDB_StateRestore(TQ3ControllerRef controllerRef, CFStringRef CtrlStateK
 {
 	TQ3Status					status = kQ3Failure;
 	TC3ControllerPrivateDataPtr theController = (TC3ControllerPrivateDataPtr)controllerRef;
-	UInt8						channelData[kQ3ControllerSetChannelMaxDataSize];
+	/*
+    UInt8						channelData[kQ3ControllerSetChannelMaxDataSize];
 	UInt32						channelDataSize;
-	
+	*/
+     
 	CFMutableDictionaryRef		dict,returnDict;
 	
 	Boolean result;

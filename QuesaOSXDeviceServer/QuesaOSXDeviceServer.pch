@@ -10,7 +10,7 @@
 #define QUESA_OS_COCOA 1
 #define Q3_DEBUG 1
 
-#warning TODO: take care of endianess on x86!
+// TODO: take care of endianess on x86!
 
 #ifndef PrivateQuesaPrefix
 	#include "E3Prefix.h"	

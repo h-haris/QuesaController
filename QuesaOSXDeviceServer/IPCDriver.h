@@ -10,7 +10,7 @@
 		Usage by GetChannel, SetChannel, StateSaveAndReset and StateRestore.
 	  
     COPYRIGHT:
-        Copyright (c) 1999-2005, Quesa Developers. All rights reserved.
+        Copyright (c) 1999-2019, Quesa Developers. All rights reserved.
 
         For the current release of Quesa, please see:
 
@@ -53,5 +53,4 @@ TQ3Status IPCDriver_Send( 	SInt32 msgid,
 							CFStringRef theDriverPortName, 
 							CFMutableDictionaryRef dict, 
 							CFMutableDictionaryRef returnDict);
-							
-							
+

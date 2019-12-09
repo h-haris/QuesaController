@@ -240,6 +240,7 @@
 					../../Quesa/Development/Source/Platform/Mac,
 					../../Quesa/SDK/Includes/Quesa,
 				);
+				INSTALL_PATH = "@executable_path/../Frameworks/";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
@@ -295,6 +296,7 @@
 					../../Quesa/Development/Source/Platform/Mac,
 					../../Quesa/SDK/Includes/Quesa,
 				);
+				INSTALL_PATH = "@executable_path/../Frameworks/";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
@@ -349,6 +351,7 @@
 					../../Quesa/Development/Source/Platform/Mac,
 					../../Quesa/SDK/Includes/Quesa,
 				);
+				INSTALL_PATH = "@executable_path/../Frameworks/";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
@@ -370,6 +373,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_POSTPROCESSING = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -388,7 +392,7 @@
 					../../Quesa/SDK/Includes/Quesa,
 				);
 				INFOPLIST_FILE = "ControllerCoreOSX_pdo_IPC-Info.plist";
-				INSTALL_PATH = "~/Library/Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -400,6 +404,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = ControllerCoreOSX_pdo_IPC;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Development;
 		};
@@ -413,6 +418,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEPLOYMENT_POSTPROCESSING = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -426,7 +432,7 @@
 					../../Quesa/SDK/Includes/Quesa,
 				);
 				INFOPLIST_FILE = "ControllerCoreOSX_pdo_IPC-Info.plist";
-				INSTALL_PATH = "~/Library/Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -438,6 +444,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = ControllerCoreOSX_pdo_IPC;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				ZERO_LINK = NO;
 			};
 			name = Deployment;
@@ -450,6 +457,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -463,7 +471,7 @@
 					../../Quesa/SDK/Includes/Quesa,
 				);
 				INFOPLIST_FILE = "ControllerCoreOSX_pdo_IPC-Info.plist";
-				INSTALL_PATH = "~/Library/Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -475,6 +483,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = ControllerCoreOSX_pdo_IPC;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Default;
 		};

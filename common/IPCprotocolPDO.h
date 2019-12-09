@@ -10,7 +10,7 @@
 		is implemented as IPC via PDOs. This header defines the used protocols.
       
     COPYRIGHT:
-        Copyright (c) 1999-2013, Quesa Developers. All rights reserved.
+        Copyright (c) 1999-2019, Quesa Developers. All rights reserved.
 
         For the current release of Quesa, please see:
 

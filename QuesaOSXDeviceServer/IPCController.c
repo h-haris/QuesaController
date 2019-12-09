@@ -11,7 +11,7 @@
 		methods and packs data to be returned to the caller.
 	  
     COPYRIGHT:
-        Copyright (c) 1999-2005, Quesa Developers. All rights reserved.
+        Copyright (c) 1999-2019, Quesa Developers. All rights reserved.
 
         For the current release of Quesa, please see:
 
@@ -691,7 +691,8 @@ TQ3Status	IpcControllerState_New(CFDictionaryRef dict, CFMutableDictionaryRef re
 	//-ctrlStateUUIDString 
 	CFDictionarySetValue(returnDict, CFSTR(k3CtrlStateUUID), ctrlStateUUIDString);
 	
-	return(kQ3Success);
+    status = kQ3Success;
+	return(status);
 };//done
 
 TQ3Status	IpcControllerState_Delete(CFDictionaryRef dict, CFMutableDictionaryRef returnDict)
@@ -716,7 +717,8 @@ TQ3Status	IpcControllerState_Delete(CFDictionaryRef dict, CFMutableDictionaryRef
 		ControllerDB_StateDelete(controllerRef, ctrlStateUUIDString);
 	}
 	
-	return(kQ3Success);
+	status = kQ3Success;
+    return(status);
 };//done
 
 TQ3Status	IpcControllerState_SaveAndReset(CFDictionaryRef dict, CFMutableDictionaryRef returnDict)
