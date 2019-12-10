@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		659FC43018D61A0100E4B838 /* QuesaCocoaDeviceServer.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7F3EB26413DDEDC200B2B96D /* QuesaCocoaDeviceServer.app */; };
 		7F3EB26B13DDEDDE00B2B96D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
 		7F3EB29A13DDF52500B2B96D /* Q3DcontrollerPDO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3EB29913DDF52500B2B96D /* Q3DcontrollerPDO.m */; };
 		7FBD646709A8C39B00E96B59 /* IPCMessageIDs.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FBD646409A8C39B00E96B59 /* IPCMessageIDs.h */; };
@@ -37,7 +36,6 @@
 			dstPath = "~/Library/Frameworks";
 			dstSubfolderSpec = 0;
 			files = (
-				659FC43018D61A0100E4B838 /* QuesaCocoaDeviceServer.app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,7 +625,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = QuesaCocoaDeviceServer;
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				USE_HEADERMAP = YES;
 				VALID_ARCHS = "i386 x86_64";
 			};
@@ -670,7 +668,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = QuesaCocoaDeviceServer;
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				USE_HEADERMAP = YES;
 				ZERO_LINK = NO;
 			};
@@ -711,7 +709,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = QuesaCocoaDeviceServer;
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				USE_HEADERMAP = YES;
 			};
 			name = Default;
