@@ -1,55 +1,55 @@
- /*  NAME:
-        ControllerCoreOSX.c
-
-    DESCRIPTION:
-        Implementation of Quesa controller API calls. Main part of the
-		ControllerCore library under MacOS X.
-		
-		Under MacOS X the communication (IPC) between driver, device server and 
-        client is implemented via PDO (portable distributed objects). 
-		This source file defines the lower functions used by the Quesa framework to 
-		communicate with the device server. It packs passed data, sends it to the
-		device server and unpacks received data to be returned to the caller.
-		
-		Methods are defined to support controller, tracker and controller states.
-		Under MacOS X there is currently no global 3D system cursor.
-      
-    COPYRIGHT:
-        Copyright (c) 1999-2013, Quesa Developers. All rights reserved.
-
-        For the current release of Quesa, please see:
-
-            <http://www.quesa.org/>
-        
-        Redistribution and use in source and binary forms, with or without
-        modification, are permitted provided that the following conditions
-        are met:
-        
-            o Redistributions of source code must retain the above copyright
-              notice, this list of conditions and the following disclaimer.
-        
-            o Redistributions in binary form must reproduce the above
-              copyright notice, this list of conditions and the following
-              disclaimer in the documentation and/or other materials provided
-              with the distribution.
-        
-            o Neither the name of Quesa nor the names of its contributors
-              may be used to endorse or promote products derived from this
-              software without specific prior written permission.
-        
-        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-        "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-        LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-        A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-        OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-        SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
-        TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    ___________________________________________________________________________
-*/
+/*  NAME:
+ ControllerCoreOSX.c
+ 
+ DESCRIPTION:
+ Implementation of Quesa controller API calls. Main part of the
+ ControllerCore library under MacOS X.
+ 
+ Under MacOS X the communication (IPC) between driver, device server and
+ client is implemented via PDO (portable distributed objects).
+ This source file defines the lower functions used by the Quesa framework to
+ communicate with the device server. It packs passed data, sends it to the
+ device server and unpacks received data to be returned to the caller.
+ 
+ Methods are defined to support controller, tracker and controller states.
+ Under MacOS X there is currently no global 3D system cursor.
+ 
+ COPYRIGHT:
+ Copyright (c) 1999-2020, Quesa Developers. All rights reserved.
+ 
+ For the current release of Quesa, please see:
+ 
+ <http://www.quesa.org/>
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ o Redistributions of source code must retain the above copyright
+ notice, this list of conditions and the following disclaimer.
+ 
+ o Redistributions in binary form must reproduce the above
+ copyright notice, this list of conditions and the following
+ disclaimer in the documentation and/or other materials provided
+ with the distribution.
+ 
+ o Neither the name of Quesa nor the names of its contributors
+ may be used to endorse or promote products derived from this
+ software without specific prior written permission.
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ ___________________________________________________________________________
+ */
 
 /* =============================================================================
  * =============================================================================
@@ -57,15 +57,15 @@
  *
  * - Q3Controller will not be registered as an object of QD3D
  *
- * - originally Q3Controller was running out of a library inside the QD3D INIT 
- * 
+ * - originally Q3Controller was running out of a library inside the QD3D INIT
+ *
  * - Deviation against QD3D in current implementation:
  * there is NO tracker held in background for the system cursor (aka mouse pointer),
- * that would be updated on demand in case no other tracker was assigned to a controller 
+ * that would be updated on demand in case no other tracker was assigned to a controller
  *
- * - Details for implementation of moving the system cursor under MacOS X can be found 
+ * - Details for implementation of moving the system cursor under MacOS X can be found
  * in CGRemoteOperation.h! see: CGPostMouseEvent
- * 
+ *
  * =============================================================================
  * =============================================================================*/
 
@@ -114,7 +114,7 @@ ControllerDriverCoreOSX	*ControllerInstances = NULL;
 
 /*
  privateProxyDB:
- -is used to talk to device server; 
+ -is used to talk to device server;
  -created on first call of a device driver function
  */
 id      privateProxyDB = nil;
@@ -206,12 +206,12 @@ TQ3Status idOfDB(id *theID)
     *theID = nil;
     //fetch vended database object: server name kQuesa3DeviceServer
 #if 0 //clean up!
-	if (nil==privateProxyDB){
-		privateProxyDB = [[NSConnection
+    if (nil==privateProxyDB){
+        privateProxyDB = [[NSConnection
                            rootProxyForConnectionWithRegisteredName:@kQuesa3DeviceServer
                            host:nil] retain];
-		[privateProxyDB setProtocolForProxy:@protocol(Q3DODeviceDB)];
-	}
+        [privateProxyDB setProtocolForProxy:@protocol(Q3DODeviceDB)];
+    }
     *theID = privateProxyDB;
     status = kQ3Success;
 #else
@@ -231,15 +231,15 @@ TQ3Status idOfDB(id *theID)
             }
         }
         [privateProxyDB retain];
-		[privateProxyDB setProtocolForProxy:@protocol(Q3DODeviceDB)];
-	}
+        [privateProxyDB setProtocolForProxy:@protocol(Q3DODeviceDB)];
+    }
     
     *theID = privateProxyDB;
     status = kQ3Success;
     
 fail:
 #endif
-	return(status);
+    return(status);
 }
 
 
@@ -267,13 +267,13 @@ id proxyOfControllerRef(TQ3ControllerRef controllerRef)
 TQ3ControllerRef
 CC3OSXController_New(const TQ3ControllerData *controllerData)
 {
-	TQ3Status               status;
+    TQ3Status               status;
     TQ3ControllerRef 		controllerRef = (TQ3ControllerRef)NULL; //TQ3ControllerRef is a *void !!
     id                      proxyDB;
     
     status = idOfDB(&proxyDB);
     
-	if (kQ3Success==status)
+    if (kQ3Success==status)
     {
         if (ControllerInstances == NULL)
             ControllerInstances = [[[ControllerDriverCoreOSX alloc] init] autorelease];
@@ -281,7 +281,7 @@ CC3OSXController_New(const TQ3ControllerData *controllerData)
         [ControllerInstances reNewWithControllerData:controllerData inDB:proxyDB];
         controllerRef = [ControllerInstances nameInDB];
     }
-	return ControllerInstances;
+    return ControllerInstances;
 }//TODO: CC3OSXController_New: change in a way that the library's local data supports more than one controller
 
 
@@ -295,13 +295,13 @@ CC3OSXController_New(const TQ3ControllerData *controllerData)
 TQ3Status
 CC3OSXController_Decommission(TQ3ControllerRef controllerRef)
 {
-	TQ3Status status = kQ3Failure;	
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
-	status = [controllerProxy decommissionController];
-
-	return(status);
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
+    status = [controllerProxy decommissionController];
+    
+    return(status);
 }
 
 
@@ -313,14 +313,14 @@ CC3OSXController_Decommission(TQ3ControllerRef controllerRef)
 TQ3Status
 CC3OSXController_GetListChanged(TQ3Boolean *listChanged, TQ3Uns32 *serialNumber)
 {
- 	TQ3Status   status = kQ3Failure;
-	id          proxyDB;
+    TQ3Status   status = kQ3Failure;
+    id          proxyDB;
     
     status = idOfDB(&proxyDB);
     if (kQ3Success==status)
         status = [proxyDB getListChanged:listChanged SerialNumber:serialNumber];
     
-	return(status);
+    return(status);
 }
 
 
@@ -332,8 +332,8 @@ CC3OSXController_GetListChanged(TQ3Boolean *listChanged, TQ3Uns32 *serialNumber)
 TQ3Status
 CC3OSXController_Next(TQ3ControllerRef controllerRef, TQ3ControllerRef *nextControllerRef)//TQ3ControllerRef is a void ptr!
 {
-	TQ3Status   status = kQ3Failure;
-	id          proxyDB;
+    TQ3Status   status = kQ3Failure;
+    id          proxyDB;
     
     status = idOfDB(&proxyDB);
     if (kQ3Success==status){
@@ -343,8 +343,8 @@ CC3OSXController_Next(TQ3ControllerRef controllerRef, TQ3ControllerRef *nextCont
         
         status = kQ3Success;
     }
-
-	return(status);
+    
+    return(status);
 }
 
 
@@ -358,14 +358,14 @@ CC3OSXController_Next(TQ3ControllerRef controllerRef, TQ3ControllerRef *nextCont
 TQ3Status
 CC3OSXController_SetActivation(TQ3ControllerRef controllerRef, TQ3Boolean active)
 {
-	TQ3Status status = kQ3Failure;
-	
+    TQ3Status status = kQ3Failure;
+    
     //object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
-	
+    id controllerProxy = proxyOfControllerRef(controllerRef);
+    
     status = [controllerProxy setActivation:active];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -377,14 +377,14 @@ CC3OSXController_SetActivation(TQ3ControllerRef controllerRef, TQ3Boolean active
 TQ3Status
 CC3OSXController_GetActivation(TQ3ControllerRef controllerRef, TQ3Boolean *active)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
-	
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
+    
     status = [controllerProxy getActivation:active];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -396,13 +396,13 @@ CC3OSXController_GetActivation(TQ3ControllerRef controllerRef, TQ3Boolean *activ
 TQ3Status
 CC3OSXController_GetSignature(TQ3ControllerRef controllerRef, char *signature, TQ3Uns32 numChars)
 {
-	TQ3Status status = kQ3Failure;
-	
+    TQ3Status status = kQ3Failure;
+    
     NSString *aSignature = NULL;
     
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
-	
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
+    
     status = [controllerProxy getSignature:&aSignature];//DANGER aSignature DANGER
     
     if (kQ3Failure!=status)
@@ -422,7 +422,7 @@ CC3OSXController_GetSignature(TQ3ControllerRef controllerRef, char *signature, T
         free(tmpsig);
     }
     
-	return(status);
+    return(status);
 }//TODO: finalize CC3OSXController_GetSignature: potential leak
 
 
@@ -438,19 +438,19 @@ CC3OSXController_GetSignature(TQ3ControllerRef controllerRef, char *signature, T
 TQ3Status
 CC3OSXController_SetChannel(TQ3ControllerRef controllerRef, TQ3Uns32 channel, const void *data, TQ3Uns32 dataSize)
 {
-	TQ3Status status = kQ3Failure;
-	
+    TQ3Status status = kQ3Failure;
+    
     //store channel data in NSData;
     NSData *theData= [NSData dataWithBytes:data length:dataSize];
     
     //object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
-	
+    id controllerProxy = proxyOfControllerRef(controllerRef);
+    
     status = [controllerProxy setChannel:channel
                                 withData:theData
                                   ofSize:dataSize];//DANGER theData DANGER
-  
-	return(status);
+    
+    return(status);
 }//TODO: finalize CC3OSXController_SetChannel: potential leak
 
 
@@ -465,13 +465,13 @@ CC3OSXController_SetChannel(TQ3ControllerRef controllerRef, TQ3Uns32 channel, co
 TQ3Status
 CC3OSXController_GetChannel(TQ3ControllerRef controllerRef, TQ3Uns32 channel, void *data, TQ3Uns32 *dataSize)
 {
-	TQ3Status status = kQ3Failure;
-	
+    TQ3Status status = kQ3Failure;
+    
     NSData *theData;
     
     //object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
-	
+    id controllerProxy = proxyOfControllerRef(controllerRef);
+    
     status = [controllerProxy getChannel:channel
                                 withData:&theData
                                   ofSize:dataSize];//DANGER theData DANGER
@@ -479,7 +479,7 @@ CC3OSXController_GetChannel(TQ3ControllerRef controllerRef, TQ3Uns32 channel, vo
     //Transfer theData to data
     [theData getBytes:data length:(NSUInteger)dataSize];
     
-	return(status);
+    return(status);
 }
 
 
@@ -491,13 +491,13 @@ CC3OSXController_GetChannel(TQ3ControllerRef controllerRef, TQ3Uns32 channel, vo
 TQ3Status
 CC3OSXController_GetValueCount(TQ3ControllerRef controllerRef, TQ3Uns32 *valueCount)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
     
     status = [controllerProxy getValueCount:valueCount];
-	return(status);
+    return(status);
 }
 
 
@@ -512,10 +512,10 @@ CC3OSXController_GetValueCount(TQ3ControllerRef controllerRef, TQ3Uns32 *valueCo
 TQ3Status
 CC3OSXController_SetTracker(TQ3ControllerRef controllerRef, TC3TrackerInstanceDataPtr tracker)
 {
-	TQ3Status  status = kQ3Failure;
-   	
+    TQ3Status  status = kQ3Failure;
+    
     //object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
+    id controllerProxy = proxyOfControllerRef(controllerRef);
     
     if (tracker==NULL)
     {
@@ -524,11 +524,11 @@ CC3OSXController_SetTracker(TQ3ControllerRef controllerRef, TC3TrackerInstanceDa
     }
     else
     {
-        //ToDo pass UUID from inside (TC3TrackerInstanceDataPtr) tracker 
+        //ToDo pass UUID from inside (TC3TrackerInstanceDataPtr) tracker
         status = [controllerProxy setTracker:[tracker->instance trackerUUID]
                            attachToSysCursor:kQ3False];
     }
-	return(status);
+    return(status);
 }
 
 
@@ -540,14 +540,14 @@ CC3OSXController_SetTracker(TQ3ControllerRef controllerRef, TC3TrackerInstanceDa
 TQ3Status
 CC3OSXController_HasTracker(TQ3ControllerRef controllerRef, TQ3Boolean *hasTracker)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
-	
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
+    
     status = [controllerProxy hasTracker:hasTracker];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -561,14 +561,14 @@ CC3OSXController_HasTracker(TQ3ControllerRef controllerRef, TQ3Boolean *hasTrack
 TQ3Status
 CC3OSXController_Track2DCursor(TQ3ControllerRef controllerRef, TQ3Boolean *track2DCursor)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
-	
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
+    
     status = [controllerProxy track2DCursor:track2DCursor];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -582,14 +582,14 @@ CC3OSXController_Track2DCursor(TQ3ControllerRef controllerRef, TQ3Boolean *track
 TQ3Status
 CC3OSXController_Track3DCursor(TQ3ControllerRef controllerRef, TQ3Boolean *track3DCursor)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
-	
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
+    
     status = [controllerProxy track3DCursor:track3DCursor];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -601,14 +601,14 @@ CC3OSXController_Track3DCursor(TQ3ControllerRef controllerRef, TQ3Boolean *track
 TQ3Status
 CC3OSXController_GetButtons(TQ3ControllerRef controllerRef, TQ3Uns32 *buttons)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
     
     status = [controllerProxy getButtons:buttons];
     
-	return(status);
+    return(status);
 }
 
 
@@ -623,14 +623,14 @@ CC3OSXController_GetButtons(TQ3ControllerRef controllerRef, TQ3Uns32 *buttons)
 TQ3Status
 CC3OSXController_SetButtons(TQ3ControllerRef controllerRef, TQ3Uns32 buttons)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
     
     status = [controllerProxy setButtons:buttons];
     
-	return(status);
+    return(status);
 }
 
 
@@ -642,14 +642,14 @@ CC3OSXController_SetButtons(TQ3ControllerRef controllerRef, TQ3Uns32 buttons)
 TQ3Status
 CC3OSXController_GetTrackerPosition(TQ3ControllerRef controllerRef, TQ3Point3D *position)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
     
     status = [controllerProxy getTrackerPosition:position];
     
-	return(status);
+    return(status);
 }
 
 
@@ -663,14 +663,14 @@ CC3OSXController_GetTrackerPosition(TQ3ControllerRef controllerRef, TQ3Point3D *
 TQ3Status
 CC3OSXController_SetTrackerPosition(TQ3ControllerRef controllerRef, const TQ3Point3D *position)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
     
     status = [controllerProxy setTrackerPosition:*position];
     
-	return(status);
+    return(status);
 }
 
 
@@ -685,14 +685,14 @@ CC3OSXController_SetTrackerPosition(TQ3ControllerRef controllerRef, const TQ3Poi
 TQ3Status
 CC3OSXController_MoveTrackerPosition(TQ3ControllerRef controllerRef, const TQ3Vector3D *delta)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
     
     status = [controllerProxy moveTrackerPosition:*delta];
     
-	return(status);
+    return(status);
 }
 
 
@@ -704,14 +704,14 @@ CC3OSXController_MoveTrackerPosition(TQ3ControllerRef controllerRef, const TQ3Ve
 TQ3Status
 CC3OSXController_GetTrackerOrientation(TQ3ControllerRef controllerRef, TQ3Quaternion *orientation)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
     
     status = [controllerProxy getTrackerOrientation:orientation];
     
-	return(status);
+    return(status);
 }
 
 
@@ -725,14 +725,14 @@ CC3OSXController_GetTrackerOrientation(TQ3ControllerRef controllerRef, TQ3Quater
 TQ3Status
 CC3OSXController_SetTrackerOrientation(TQ3ControllerRef controllerRef, const TQ3Quaternion *orientation)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
     
     status = [controllerProxy setTrackerOrientation:*orientation];
     
-	return(status);
+    return(status);
 }
 
 
@@ -747,14 +747,14 @@ CC3OSXController_SetTrackerOrientation(TQ3ControllerRef controllerRef, const TQ3
 TQ3Status
 CC3OSXController_MoveTrackerOrientation(TQ3ControllerRef controllerRef, const TQ3Quaternion *delta)
 {
-	TQ3Status status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
+    TQ3Status status = kQ3Failure;
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
     
     status = [controllerProxy moveTrackerOrientation:*delta];
     
-	return(status);
+    return(status);
 }
 
 
@@ -766,19 +766,19 @@ CC3OSXController_MoveTrackerOrientation(TQ3ControllerRef controllerRef, const TQ
 TQ3Status
 CC3OSXController_GetValues(TQ3ControllerRef controllerRef, TQ3Uns32 valueCount, float *values, TQ3Boolean *changed, TQ3Uns32 *serialNumber)
 {
-	TQ3Status 	status = kQ3Failure;
+    TQ3Status 	status = kQ3Failure;
     
     TQ3Uns32 	privValueCount = 0;
-	TQ3Uns32 	tempSerNum = 0;
+    TQ3Uns32 	tempSerNum = 0;
     TQ3Boolean  tempChanged = kQ3False;
-	TQ3Boolean	active;
+    TQ3Boolean	active;
     TQ3Boolean  unload;
     NSArray     *valAr = NULL;
-
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
     
-	status = [controllerProxy getValues:&valAr
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(controllerRef);
+    
+    status = [controllerProxy getValues:&valAr
                                 ofCount:&privValueCount
                                isActive:&active
                            SerialNumber:&tempSerNum];//DANGER valAr DANGER
@@ -827,7 +827,7 @@ CC3OSXController_GetValues(TQ3ControllerRef controllerRef, TQ3Uns32 valueCount, 
         if (*serialNumber!=tempSerNum)
             *serialNumber = tempSerNum;
     
-	return(status);
+    return(status);
 }//TODO: finalize CC3OSXController_GetValues: potential leak
 
 
@@ -842,10 +842,10 @@ CC3OSXController_GetValues(TQ3ControllerRef controllerRef, TQ3Uns32 valueCount, 
 TQ3Status
 CC3OSXController_SetValues(TQ3ControllerRef controllerRef, const float *values, TQ3Uns32 valueCount)
 {
-	TQ3Status status = kQ3Failure;
+    TQ3Status status = kQ3Failure;
     int index;
-	
-	//values
+    
+    //values
     CFNumberRef *valuesInput = (CFNumberRef*)malloc(valueCount*sizeof(CFNumberRef));
     for (index=0; index<valueCount; index++)
         valuesInput[index]= CFNumberCreate(kCFAllocatorDefault,kCFNumberFloatType,&values[index]);
@@ -853,16 +853,16 @@ CC3OSXController_SetValues(TQ3ControllerRef controllerRef, const float *values, 
     for (index=0; index<valueCount; index++)
         CFRelease(valuesInput[index]);
     free(valuesInput);
-
+    
     //object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(controllerRef);
+    id controllerProxy = proxyOfControllerRef(controllerRef);
     
     status = [controllerProxy setValues:(NSArray *)valuesRef
                                 ofCount:valueCount];
     
     CFRelease(valuesRef);
     
-	return(status);
+    return(status);
 }
 
 
@@ -875,22 +875,22 @@ CC3OSXController_SetValues(TQ3ControllerRef controllerRef, const float *values, 
 TC3TrackerInstanceDataPtr
 CC3OSXTracker_New(TQ3Object theObject, TQ3TrackerNotifyFunc notifyFunc)
 {
-	TC3TrackerInstanceDataPtr theInstanceData;
-	theInstanceData = (TC3TrackerInstanceDataPtr)malloc(sizeof(TC3TrackerInstanceData));
+    TC3TrackerInstanceDataPtr theInstanceData;
+    theInstanceData = (TC3TrackerInstanceDataPtr)malloc(sizeof(TC3TrackerInstanceData));
     
-	if (theInstanceData==NULL)
-		return NULL;
+    if (theInstanceData==NULL)
+        return NULL;
     
-	//alloc init
-	theInstanceData->instance = [[[TrackerCoreOSX alloc] init] autorelease];
-	
-	//get Server Name for vended tracker object
-	NSString* TrackerInstanceServerName = [theInstanceData->instance
+    //alloc init
+    theInstanceData->instance = [[[TrackerCoreOSX alloc] init] autorelease];
+    
+    //get Server Name for vended tracker object
+    NSString* TrackerInstanceServerName = [theInstanceData->instance
                                            newWithNotificationFunction:notifyFunc
                                            selfOfNotifyFunc:theInstanceData];
 #pragma unused(TrackerInstanceServerName)
-	
-	return(theInstanceData);
+    
+    return(theInstanceData);
 }//what happens with (TQ3Object)theObject? Look in Quesa glue code! Done!
 
 
@@ -903,7 +903,7 @@ TC3TrackerInstanceDataPtr
 CC3OSXTracker_Delete(TC3TrackerInstanceDataPtr trackerObject)//"un"vend theTracker message to DB!
 {
     TQ3Status   status = kQ3Failure;
-	id          proxyDB;
+    id          proxyDB;
     
     status = idOfDB(&proxyDB);
     if (kQ3Success==status)
@@ -914,8 +914,8 @@ CC3OSXTracker_Delete(TC3TrackerInstanceDataPtr trackerObject)//"un"vend theTrack
         
         free(trackerObject);//see coresponding malloc in CC3OSXTracker_New
         trackerObject = NULL;
-	}
-	return(trackerObject);//ignored by caller
+    }
+    return(trackerObject);//ignored by caller
 }
 
 
@@ -927,12 +927,12 @@ CC3OSXTracker_Delete(TC3TrackerInstanceDataPtr trackerObject)//"un"vend theTrack
 TQ3Status
 CC3OSXTracker_SetNotifyThresholds(TC3TrackerInstanceDataPtr trackerObject, float positionThresh, float orientationThresh)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance setNotifyThresholdsPosition:positionThresh
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance setNotifyThresholdsPosition:positionThresh
                                                       orientation:orientationThresh];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -944,12 +944,12 @@ CC3OSXTracker_SetNotifyThresholds(TC3TrackerInstanceDataPtr trackerObject, float
 TQ3Status
 CC3OSXTracker_GetNotifyThresholds(TC3TrackerInstanceDataPtr trackerObject, float *positionThresh, float *orientationThresh)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance notifyThresholdsPosition:positionThresh
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance notifyThresholdsPosition:positionThresh
                                                    orientation:orientationThresh];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -961,11 +961,11 @@ CC3OSXTracker_GetNotifyThresholds(TC3TrackerInstanceDataPtr trackerObject, float
 TQ3Status
 CC3OSXTracker_SetActivation(TC3TrackerInstanceDataPtr trackerObject, TQ3Boolean active)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance setActivation:active];
-	
-	return(status);
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance setActivation:active];
+    
+    return(status);
 }
 
 
@@ -977,11 +977,11 @@ CC3OSXTracker_SetActivation(TC3TrackerInstanceDataPtr trackerObject, TQ3Boolean 
 TQ3Status
 CC3OSXTracker_GetActivation(TC3TrackerInstanceDataPtr trackerObject, TQ3Boolean *active)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance activation:active];
-	
-	return(status);
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance activation:active];
+    
+    return(status);
 }
 
 
@@ -993,11 +993,11 @@ CC3OSXTracker_GetActivation(TC3TrackerInstanceDataPtr trackerObject, TQ3Boolean 
 TQ3Status
 CC3OSXTracker_GetButtons(TC3TrackerInstanceDataPtr trackerObject, TQ3Uns32 *buttons)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance buttons:buttons];
-	
-	return(status);
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance buttons:buttons];
+    
+    return(status);
 }
 
 
@@ -1009,13 +1009,13 @@ CC3OSXTracker_GetButtons(TC3TrackerInstanceDataPtr trackerObject, TQ3Uns32 *butt
 TQ3Status
 CC3OSXTracker_ChangeButtons(TC3TrackerInstanceDataPtr trackerObject, TQ3ControllerRef controllerRef, TQ3Uns32 buttons, TQ3Uns32 buttonMask)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance changeButtonsWithController:controllerRef
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance changeButtonsWithController:controllerRef
                                                           buttons:buttons
                                                        buttonMask:buttonMask];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -1027,14 +1027,14 @@ CC3OSXTracker_ChangeButtons(TC3TrackerInstanceDataPtr trackerObject, TQ3Controll
 TQ3Status
 CC3OSXTracker_GetPosition(TC3TrackerInstanceDataPtr trackerObject, TQ3Point3D *position, TQ3Vector3D *delta, TQ3Boolean *changed, TQ3Uns32 *serialNumber)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance positionWithSerialNumber:serialNumber
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance positionWithSerialNumber:serialNumber
                                                       Position:position
                                                          Delta:delta
                                                        Changed:changed];
-
-	return(status);
+    
+    return(status);
 }
 
 
@@ -1046,12 +1046,12 @@ CC3OSXTracker_GetPosition(TC3TrackerInstanceDataPtr trackerObject, TQ3Point3D *p
 TQ3Status
 CC3OSXTracker_SetPosition(TC3TrackerInstanceDataPtr trackerObject, TQ3ControllerRef controllerRef, const TQ3Point3D *position)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance setPositionWithController:controllerRef
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance setPositionWithController:controllerRef
                                                        position:*position];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -1063,12 +1063,12 @@ CC3OSXTracker_SetPosition(TC3TrackerInstanceDataPtr trackerObject, TQ3Controller
 TQ3Status
 CC3OSXTracker_MovePosition(TC3TrackerInstanceDataPtr trackerObject, TQ3ControllerRef controllerRef, const TQ3Vector3D *delta)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance movePositionWithController:controllerRef
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance movePositionWithController:controllerRef
                                                            delta:*delta];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -1080,14 +1080,14 @@ CC3OSXTracker_MovePosition(TC3TrackerInstanceDataPtr trackerObject, TQ3Controlle
 TQ3Status
 CC3OSXTracker_GetOrientation(TC3TrackerInstanceDataPtr trackerObject, TQ3Quaternion *orientation, TQ3Quaternion *delta, TQ3Boolean *changed, TQ3Uns32 *serialNumber)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance orientationWithSerialNumber:serialNumber
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance orientationWithSerialNumber:serialNumber
                                                       Orientation:orientation
                                                             Delta:delta
                                                           Changed:changed];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -1099,12 +1099,12 @@ CC3OSXTracker_GetOrientation(TC3TrackerInstanceDataPtr trackerObject, TQ3Quatern
 TQ3Status
 CC3OSXTracker_SetOrientation(TC3TrackerInstanceDataPtr trackerObject, TQ3ControllerRef controllerRef, const TQ3Quaternion *orientation)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance setOrientationWithController:controllerRef
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance setOrientationWithController:controllerRef
                                                        orientation:*orientation];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -1116,12 +1116,12 @@ CC3OSXTracker_SetOrientation(TC3TrackerInstanceDataPtr trackerObject, TQ3Control
 TQ3Status
 CC3OSXTracker_MoveOrientation(TC3TrackerInstanceDataPtr trackerObject, TQ3ControllerRef controllerRef, const TQ3Quaternion *delta)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance moveOrientationWithController:controllerRef
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance moveOrientationWithController:controllerRef
                                                               delta:*delta];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -1133,14 +1133,14 @@ CC3OSXTracker_MoveOrientation(TC3TrackerInstanceDataPtr trackerObject, TQ3Contro
 TQ3Status
 CC3OSXTracker_SetEventCoordinates(TC3TrackerInstanceDataPtr trackerObject, TQ3Uns32 timeStamp, TQ3Uns32 buttons, const TQ3Point3D *position, const TQ3Quaternion *orientation)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance setEventCoordinatesAtTimestamp:timeStamp
-                                                             buttons:buttons 
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance setEventCoordinatesAtTimestamp:timeStamp
+                                                             buttons:buttons
                                                             position:position
                                                          orientation:orientation];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -1152,14 +1152,14 @@ CC3OSXTracker_SetEventCoordinates(TC3TrackerInstanceDataPtr trackerObject, TQ3Un
 TQ3Status
 CC3OSXTracker_GetEventCoordinates(TC3TrackerInstanceDataPtr trackerObject, TQ3Uns32 timeStamp, TQ3Uns32 *buttons, TQ3Point3D *position, TQ3Quaternion *orientation)
 {
-	TQ3Status status = kQ3Failure;
-	
-	status = [trackerObject->instance eventCoordinatesAtTimestamp:timeStamp
+    TQ3Status status = kQ3Failure;
+    
+    status = [trackerObject->instance eventCoordinatesAtTimestamp:timeStamp
                                                           buttons:buttons
                                                          position:position
                                                       orientation:orientation];
-	
-	return(status);
+    
+    return(status);
 }
 
 
@@ -1172,12 +1172,12 @@ CC3OSXTracker_GetEventCoordinates(TC3TrackerInstanceDataPtr trackerObject, TQ3Un
 TC3ControllerStateInstanceDataPtr
 CC3OSXControllerState_New(TQ3Object theObject, TQ3ControllerRef theController)
 {
-	TC3ControllerStateInstanceDataPtr	theInstanceData = NULL;
+    TC3ControllerStateInstanceDataPtr	theInstanceData = NULL;
     NSString    *aUUID;
     TQ3Status   status = kQ3Failure;
-	
-	//object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(theController);
+    
+    //object id for key in controllerRef
+    id controllerProxy = proxyOfControllerRef(theController);
     
     //query UUIDString
     status = [controllerProxy newStateWithUUID:&aUUID];//TODO: TBC - troubles with 2nd re-new?
@@ -1193,8 +1193,8 @@ CC3OSXControllerState_New(TQ3Object theObject, TQ3ControllerRef theController)
         
         [theInstanceData->ctrlStateUUIDString retain];
     };
-					
-	return(theInstanceData);
+    
+    return(theInstanceData);
 }//TODO: crashes when re-run bench WITHOUT stopping and starting the device server for 2nd bench run
 
 
@@ -1215,15 +1215,15 @@ CC3OSXControllerState_Delete(TC3ControllerStateInstanceDataPtr ctrlStateObject)
      */
     
     //object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(ctrlStateObject->myController);
+    id controllerProxy = proxyOfControllerRef(ctrlStateObject->myController);
     
     (void)[controllerProxy deleteStateWithUUID:ctrlStateObject->ctrlStateUUIDString];
     
     [ctrlStateObject->ctrlStateUUIDString release];
     
     free (ctrlStateObject);//correspondig malloc see CC3OSXControllerState_New
-	
-	return(NULL);
+    
+    return(NULL);
 }
 
 
@@ -1235,14 +1235,14 @@ CC3OSXControllerState_Delete(TC3ControllerStateInstanceDataPtr ctrlStateObject)
 TQ3Status
 CC3OSXControllerState_SaveAndReset(TC3ControllerStateInstanceDataPtr ctrlStateObject)
 {
-	TQ3Status				status = kQ3Failure;
-	
+    TQ3Status				status = kQ3Failure;
+    
     //object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(ctrlStateObject->myController);
+    id controllerProxy = proxyOfControllerRef(ctrlStateObject->myController);
     
     status = [controllerProxy saveResetStateWithUUID:ctrlStateObject->ctrlStateUUIDString];
     
-	return(status);
+    return(status);
 }
 
 
@@ -1254,14 +1254,14 @@ CC3OSXControllerState_SaveAndReset(TC3ControllerStateInstanceDataPtr ctrlStateOb
 TQ3Status
 CC3OSXControllerState_Restore(TC3ControllerStateInstanceDataPtr ctrlStateObject)
 {
-	TQ3Status				status = kQ3Failure;
-	
+    TQ3Status				status = kQ3Failure;
+    
     //object id for key in controllerRef
-	id controllerProxy = proxyOfControllerRef(ctrlStateObject->myController);
+    id controllerProxy = proxyOfControllerRef(ctrlStateObject->myController);
     
     status = [controllerProxy restoreStateWithUUID:ctrlStateObject->ctrlStateUUIDString];
     
-	return(status);
+    return(status);
 }
 
 
@@ -1274,8 +1274,8 @@ CC3OSXControllerState_Restore(TC3ControllerStateInstanceDataPtr ctrlStateObject)
 TQ3Status
 CC3OSXCursorTracker_PrepareTracking(void)
 {
-	// To be implemented...
-	return(kQ3Failure);
+    // To be implemented...
+    return(kQ3Failure);
 }
 
 
@@ -1287,8 +1287,8 @@ CC3OSXCursorTracker_PrepareTracking(void)
 TQ3Status
 CC3OSXCursorTracker_SetTrackDeltas(TQ3Boolean trackDeltas)
 {
-	// To be implemented...
-	return(kQ3Failure);
+    // To be implemented...
+    return(kQ3Failure);
 }
 
 
@@ -1300,8 +1300,8 @@ CC3OSXCursorTracker_SetTrackDeltas(TQ3Boolean trackDeltas)
 TQ3Status
 CC3OSXCursorTracker_GetAndClearDeltas(float *depth, TQ3Quaternion *orientation, TQ3Boolean *hasOrientation, TQ3Boolean *changed, TQ3Uns32 *serialNumber)
 {
-	// To be implemented...
-	return(kQ3Failure);
+    // To be implemented...
+    return(kQ3Failure);
 }
 
 
@@ -1313,8 +1313,8 @@ CC3OSXCursorTracker_GetAndClearDeltas(float *depth, TQ3Quaternion *orientation, 
 TQ3Status
 CC3OSXCursorTracker_SetNotifyFunc(TQ3CursorTrackerNotifyFunc notifyFunc)
 {
-	// To be implemented...
-	return(kQ3Failure);
+    // To be implemented...
+    return(kQ3Failure);
 }
 
 
@@ -1326,7 +1326,7 @@ CC3OSXCursorTracker_SetNotifyFunc(TQ3CursorTrackerNotifyFunc notifyFunc)
 TQ3Status
 CC3OSXCursorTracker_GetNotifyFunc(TQ3CursorTrackerNotifyFunc *notifyFunc)
 {
-	// To be implemented...
-	return(kQ3Failure);
+    // To be implemented...
+    return(kQ3Failure);
 }
 

@@ -15,9 +15,9 @@
 
 - (id)init {
     if (self = [super init]) {
-		// init my own stuff
+        // init my own stuff
         _statesAtUUID = [NSMutableDictionary dictionaryWithCapacity:2];
-	}
+    }
     return self;
 }
 
@@ -108,7 +108,7 @@
                withData:(NSData *) theData
                  ofSize:(TQ3Uns32) dataSize
 {
-	TQ3Status			status = kQ3Failure;
+    TQ3Status			status = kQ3Failure;
     
     if (_hasSetChannelMethod)
     {
@@ -122,8 +122,8 @@
         else //theData==NULL is valid!
             status = _controllerData.channelSetMethod((TQ3ControllerRef)_nameInDB, channel, NULL, dataSize);
     }
-
-	return status;
+    
+    return status;
 }
 
 
@@ -136,7 +136,7 @@
                withData:(inout NSData **) theData
                  ofSize:(inout TQ3Uns32 *) dataSize
 {
-	TQ3Status			status = kQ3Failure;
+    TQ3Status			status = kQ3Failure;
     void 				*data;
     
     if (_hasGetChannelMethod)
@@ -156,14 +156,14 @@
         *theData = [NSData dataWithBytes:data length:*dataSize];
         free(data);
     }
-
-	return status;
+    
+    return status;
 }
 
 
 -(TQ3Status) newDrvStateWithUUID:(NSString *) stateUUID
 {
-	TQ3Status status = kQ3Success /*kQ3Failure*/;//no error handling!
+    TQ3Status status = kQ3Success /*kQ3Failure*/;//no error handling!
     
     //private allocate new state data; key is passed stateUUID
     [_statesAtUUID setObject:[NSMutableArray arrayWithCapacity:4] forKey:stateUUID];
@@ -174,7 +174,7 @@
 
 -(TQ3Status) deleteDrvStateWithUUID:(NSString *) stateUUID
 {
-	TQ3Status status = kQ3Success /*kQ3Failure*/;//no error handling!
+    TQ3Status status = kQ3Success /*kQ3Failure*/;//no error handling!
     
     [_statesAtUUID removeObjectForKey:stateUUID];
     
@@ -189,7 +189,7 @@
  */
 -(TQ3Status) saveDrvResetStateWithUUID:(NSString *) stateUUID
 {
-	TQ3Status       status = kQ3Failure;	//resulting status after calling driver method
+    TQ3Status       status = kQ3Failure;	//resulting status after calling driver method
     
     NSData          *dataOfChannel;
     NSMutableArray  *arrayAtUUID;
@@ -203,30 +203,30 @@
     }
     
     for (channel=0; channel<_controllerData.channelCount; channel++)
-	{
-		dataSize = kQ3ControllerSetChannelMaxDataSize;
-		if (_hasGetChannelMethod)
-		{
-			//--get channel data
-			status = [self getChannel:channel withData:&dataOfChannel ofSize:&dataSize];
-			
-			//--store array element in array
+    {
+        dataSize = kQ3ControllerSetChannelMaxDataSize;
+        if (_hasGetChannelMethod)
+        {
+            //--get channel data
+            status = [self getChannel:channel withData:&dataOfChannel ofSize:&dataSize];
+            
+            //--store array element in array
 #ifndef __clang_analyzer__
             [arrayAtUUID insertObject:dataOfChannel atIndex:channel];
 #else
 #warning CLANG disabled here
 #endif //CLANG analysis might show a false "Logik error"
-		}
+        }
         
-		if (_hasSetChannelMethod)
-		{
-			//--set channel data to NULL
-			dataSize=0;
+        if (_hasSetChannelMethod)
+        {
+            //--set channel data to NULL
+            dataSize=0;
             status = [self setChannel:channel withData:NULL ofSize:dataSize];
-		}
-	}
+        }
+    }
     
-	return status;
+    return status;
 }
 
 
@@ -237,8 +237,8 @@
  */
 -(TQ3Status) restoreDrvStateWithUUID:(NSString *) stateUUID
 {
-	TQ3Status		status = kQ3Failure;	//resulting status after calling driver method
-	
+    TQ3Status		status = kQ3Failure;	//resulting status after calling driver method
+    
     NSMutableArray  *arrayAtUUID;
     NSData          *dataAtIndex;
     
@@ -250,16 +250,16 @@
     }
     
     for (channel=0; channel<_controllerData.channelCount; channel++)
-	{
-		if (_hasSetChannelMethod)
-		{
-			dataAtIndex = [arrayAtUUID objectAtIndex:channel];
+    {
+        if (_hasSetChannelMethod)
+        {
+            dataAtIndex = [arrayAtUUID objectAtIndex:channel];
             dataSize=(TQ3Uns32)[dataAtIndex length];
             status = [self setChannel:channel withData:dataAtIndex ofSize:dataSize];
-		}
-	}
-
-	return status;
+        }
+    }
+    
+    return status;
 }
 
 @end

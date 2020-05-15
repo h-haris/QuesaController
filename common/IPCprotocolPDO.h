@@ -1,50 +1,50 @@
 /*  NAME:
-        IPCprotocolPDO.h
-
-    DESCRIPTION:
-        Header file with protocols used for IPC via (P)DOs.
-		
-		Implementation of Quesa controller API calls.
-		
-		Under MacOS X the communication between driver, device server and client
-		is implemented as IPC via PDOs. This header defines the used protocols.
-      
-    COPYRIGHT:
-        Copyright (c) 1999-2019, Quesa Developers. All rights reserved.
-
-        For the current release of Quesa, please see:
-
-            <http://www.quesa.org/>
-        
-        Redistribution and use in source and binary forms, with or without
-        modification, are permitted provided that the following conditions
-        are met:
-        
-            o Redistributions of source code must retain the above copyright
-              notice, this list of conditions and the following disclaimer.
-        
-            o Redistributions in binary form must reproduce the above
-              copyright notice, this list of conditions and the following
-              disclaimer in the documentation and/or other materials provided
-              with the distribution.
-        
-            o Neither the name of Quesa nor the names of its contributors
-              may be used to endorse or promote products derived from this
-              software without specific prior written permission.
-        
-        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-        "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-        LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-        A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-        OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-        SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
-        TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    ___________________________________________________________________________
-*/
+ IPCprotocolPDO.h
+ 
+ DESCRIPTION:
+ Header file with protocols used for IPC via (P)DOs.
+ 
+ Implementation of Quesa controller API calls.
+ 
+ Under MacOS X the communication between driver, device server and client
+ is implemented as IPC via PDOs. This header defines the used protocols.
+ 
+ COPYRIGHT:
+ Copyright (c) 1999-2020, Quesa Developers. All rights reserved.
+ 
+ For the current release of Quesa, please see:
+ 
+ <http://www.quesa.org/>
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ o Redistributions of source code must retain the above copyright
+ notice, this list of conditions and the following disclaimer.
+ 
+ o Redistributions in binary form must reproduce the above
+ copyright notice, this list of conditions and the following
+ disclaimer in the documentation and/or other materials provided
+ with the distribution.
+ 
+ o Neither the name of Quesa nor the names of its contributors
+ may be used to endorse or promote products derived from this
+ software without specific prior written permission.
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ ___________________________________________________________________________
+ */
 
 #import <Cocoa/Cocoa.h>
 
@@ -110,7 +110,7 @@ typedef unsigned long long              TQ3ControllerRefCast;
 - (out TQ3ControllerRefCast)nextCC3Controller: (in TQ3ControllerRefCast) currentControllerRef;
 
 - (TQ3Status) getListChanged:(inout TQ3Boolean*) listChanged 
-				SerialNumber:(inout TQ3Uns32*) serNum;
+                SerialNumber:(inout TQ3Uns32*) serNum;
 - (TQ3Status) trackerDeleted:(NSString *) deletedTrackerUUID;
 - (TQ3Boolean) isKnownSignature:(NSString *) aDriverSignature;
 @end
@@ -135,18 +135,18 @@ typedef unsigned long long              TQ3ControllerRefCast;
 - (TQ3Status) setActivation:(TQ3Boolean) active;
 - (TQ3Status) activation:(inout TQ3Boolean*) active;
 - (TQ3Status) changeButtonsWithController:(TQ3ControllerRef /*TQ3ControllerRefCast*/) controllerRef
-								  buttons:(TQ3Uns32) theButtons 
-							   buttonMask:(TQ3Uns32) aButtonMask;
+                                  buttons:(TQ3Uns32) theButtons
+                               buttonMask:(TQ3Uns32) aButtonMask;
 - (TQ3Status) positionWithSerialNumber:(inout TQ3Uns32 *) aSerialNumber 
-							  Position:(inout TQ3Point3D *) aPosition 
-								 Delta:(inout TQ3Vector3D *) aDelta 
-							   Changed:(inout TQ3Boolean *) isChanged;
+                              Position:(inout TQ3Point3D *) aPosition
+                                 Delta:(inout TQ3Vector3D *) aDelta
+                               Changed:(inout TQ3Boolean *) isChanged;
 - (TQ3Status) setPositionWithController:(TQ3ControllerRef /*TQ3ControllerRefCast*/) controllerRef position:(TQ3Point3D) aPosition;
 - (TQ3Status) movePositionWithController:(TQ3ControllerRef /*TQ3ControllerRefCast*/) controllerRef delta:(TQ3Vector3D) aDelta;
 - (TQ3Status) orientationWithSerialNumber:(inout TQ3Uns32*) aSerialNumber
-							  Orientation:(inout TQ3Quaternion *) anOrientation 
-									Delta:(inout TQ3Quaternion *) aDelta 
-								  Changed:(inout TQ3Boolean *) isChanged;
+                              Orientation:(inout TQ3Quaternion *) anOrientation
+                                    Delta:(inout TQ3Quaternion *) aDelta
+                                  Changed:(inout TQ3Boolean *) isChanged;
 - (TQ3Status) setOrientationWithController:(TQ3ControllerRef /*TQ3ControllerRefCast*/) controllerRef orientation:(TQ3Quaternion) anOrientation;
 - (TQ3Status) moveOrientationWithController:(TQ3ControllerRef /*TQ3ControllerRefCast*/) controllerRef delta:(TQ3Quaternion) aDelta;
 @end
